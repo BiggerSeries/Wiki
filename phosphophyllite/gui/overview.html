@@ -1,0 +1,114 @@
+<!--
+title: GUI Overview
+description: 
+published: true
+date: 2021-12-22T09:36:15.919Z
+tags: 
+editor: ckeditor
+dateCreated: 2021-12-22T08:58:30.375Z
+-->
+
+<blockquote>
+  <p>This documentation about the GUI system was written <strong>for developers</strong> with Minecraft 1.18.1 in mind. Much of it should still apply to older versions (excluding 1.15.2), but class names and locations will likely be different.</p>
+</blockquote>
+<p><strong>Phosphophyllite Screens</strong> are Phosphophyllite's own GUI system for blocks/tiles, based upon Minecraft's internal system. This is included in Phosphophyllite, but modders using Phosphophyllite are not required to use it and can safely ignore it if desired.</p>
+<p>The system is primarily intended to make writing “container'd” blocks easier; that is to say, blocks or tiles that make use of a container or menu to keep track of data, such as a Furnace or Cyanite Reprocessor. For GUIs that do not use a container, such as a settings menu or error screen, it is recommended to use Minecraft's internal system, as ignoring containers makes the vanilla system a lot cleaner to work with.</p>
+<p>Below is a generalized overview behind some of the things in the GUI system.</p>
+<h2>Phosphophyllite Screens</h2>
+<p>Screens in Phosphophyllite (the rendered, final output displayed to the user) all extend the <code>PhosphophylliteScreen</code> class. When extending, you must specify your container's class as a generic. Inside of the constructor, you will need to pass in the following information:</p>
+<ul>
+  <li><code>container</code>: An instance of your container.</li>
+  <li><code>playerInventory</code>: The player's current inventory.</li>
+  <li><code>title</code>: The name of your screen.</li>
+  <li><code>textureAtlas</code>: The texture for your screen. The atlas is usually 256 × 256 pixels in size.</li>
+  <li><code>width</code>, <code>height</code>: The size of the texture for your screen. The texture itself is usually less than 256 × 256 pixels in size.</li>
+</ul>
+<p>This populated constructor is all you need to render a simple screen. The final thing to do is to register your screens and their associated containers in the <code>FMLClientSetupEvent</code> phase, by calling <code>MenuScreens.register()</code> with an instance of your container, and the constructor for your screen.</p>
+<h2>Containers and GUI Syncing</h2>
+<p>That simple screen is good for static images. However, it can't do much on its own. Most of the time, you'll want to update the screen depending on the state of a tile entity, or send a command/callback from your GUI back to the tile entity. This is where containers and the <code>GuiSync</code> class come into play.</p>
+<p>Unlike screens, Phosphophyllite doesn't have a dedicated <code>PhosphophylliteContainer</code> class. Instead, you should extend Minecraft's <code>AbstractContainerMenu</code> class and implement Phosphophyllite's <code>GuiSync.IGUIPacketProvider</code>. The latter will require overriding of the function <code>getGuiPacket()</code>, which is what is used to communicate the current state of the container to the screen. In practice, an easy way to populate this is to store a GUI state object inside your tile entity, which contains all information relevant to the GUI. Whenever the screen wants to update its information, it will call this function, and the packet returned from the function will be automatically synchronized between the server and client.</p>
+<p>Lastly, registration for containers can be handled through Phosphophyllite's registry system. This involves doing three things:</p>
+<ul>
+  <li>Annotating your container class with <code>@RegisterContainer(name = “unique_container_name”)</code>. Your container name must be unique, or the game will fail to load.</li>
+  <li>Creating a public static field with the <code>@RegisterContainer.Type</code> annotation. The name of the field doesn't matter, but the type should be <code>MenuType&lt;MyContainerClass&gt;</code>, filling in whatever your container class is named.</li>
+  <li>Creating another public static <i>final </i>field with the <code>@RegisterContainer.Supplier</code> annotation. Again, the name of the field doesnt matter, but it should have the type <code>ContainerSupplier</code>, and should be initialized with a supplier. If your container class's constructor has arguments matching those in <code>ContainerSupplier </code>(that is: <code>int, BlockPos, Player</code>), then you can simply put <code>MyContainerClass::new</code>.</li>
+</ul>
+<p>The rest of the container may be populated as needed for your use case.</p>
+<h2>Using Synchronized Data</h2>
+<p>Now that our data is synchronized, we can begin doing things with it. Inside your screen class, you can create a private field to store the last known state of the container. Inside your constructor, you can initialize your state field by calling <code>this.getMenu().getGuiPacket()</code> and casting the returned value to your state class. Afterwards, you can render your GUI however you like, using the data inside that field.</p>
+<p>But what if the data is updated? Our field currently will check the tile entity's state once at the very beginning, and then ignore it. For some use cases, that's fine. If you would like for your GUI to have a constant feed of accurate data though, you should override the <code>containerTick()</code> method, and perform the same step as above. Don't forget, however, to also call the original container ticking method (that is to say, <code>super.containerTick()</code>)!</p>
+<h2>Sending Requests Back</h2>
+<p>In addition to sending data from the server to the client, we can also send commands back from the client to the server. This is particularly useful if your GUI is controlling something like machinery, where it would be desirable to add an on/off switch or something similar. We can use <code>executeRequest()</code> and <code>runRequest()</code> to accomplish this.</p>
+<p>To start, we need to override the <code>executeRequest()</code> function inside your container class. Inside of this, you can do whatever side and validity checking you please, but it is generally advised to check that the current level is not null somehow (such as if the world was closed mid-request). Most importantly, however, you should check the current side of the tile entity. If it is client side, you should call <code>runRequest()</code>, passing in your request name and data – <strong>this call should refer to that of GuiSync, not your tile entity</strong> (which I'll explain in a second). If the is not client side, you should call <code>myTileEntity.runRequest()</code> with your request name and data.</p>
+<p>You may wonder why the distinction. Primarily, if the call to <code>executeRequest()</code> was called on the client side, we want to pass it to <code>GuiSync</code> to send it to the server. However, if it is not on the client side, we want to send it to the tile entity so that it may handle it. An example of an executeRequest(String, Object) is provided below, since the above explanation might be a little confusing:<br>&nbsp;</p>
+<pre><code class="language-java">@Override
+public void executeRequest(String requestName, Object requestData) {
+    assert tileEntity.getLevel() != null;
+    if (tileEntity.getLevel().isClientSide) {
+        runRequest(requestName, requestData);
+        return;
+    }
+
+    tileEntity.runRequest(requestName, requestData);
+}</code></pre>
+<p>Inside your tile entity, you can now implement a <code>runRequest()</code> function. This doesn't actually have to be called <code>runRequest</code>, but whatever you call it, it should match the last line of the example below. Afterwards, you should have a working request system.</p>
+<p>A common way to use this is an <code>InteractiveElement</code> (explained later) in your screen, with it's callback set to call <code>executeRequest</code> with a request name and a bit of information, such as a boolean or integer. Then, inside your tile entity, you can read this request name, and cast the information according to what is expected, and do whatever it is you need. For example, say your screen has a button (or some other <code>InteractiveElement</code>) named <code>powerSwitch</code> that is designed to toggle something on or off:<br>&nbsp;</p>
+<pre><code class="language-java">powerSwitch.onMouseReleased = (mX, mY, btn) -&gt; {
+    screen.getMenu().executeRequest("togglePowerSwitch", powerSwitch.getState());
+    return true;
+};</code></pre>
+<p>Assuming your container is setup correctly, your tile entity could have the following:<br>&nbsp;</p>
+<pre><code class="language-java">public void runRequest(String requestName, @Nullable Object requestData) {
+    switch (requestName) {
+        // Toggle the power switch.
+        case "togglePowerSwitch" -&gt; {
+            if (!(requestData instanceof Boolean)) {
+                // Power switch state should be true or false, so the data must not be right.
+                return;
+            }
+            this.setPowerStatus((Boolean) requestData);
+        }
+        // [ other cases below ] //</code></pre>
+<h2>Screen Elements</h2>
+<p>In Phosphophyllite, screens can be customized using screen elements. These are similar to vanilla's widgets, but implemented in a different way. While you can use both, Phosphophyllite screens are intended to work with screen elements, and as such <strong>vanilla widgets may or may not render correctly or function at all</strong>.</p>
+<p>To add a widget to a Phosphophyllite screen, all you need to do in your screen is call <code>addScreenElement()</code> with an instance of your element.</p>
+<p>Currently, Phosphophyllite comes with three widgets by default, and an abstract widget upon which to build your own. Starting with the most basic element, and working up in complexity:</p>
+<ul>
+  <li><code>AbstractElement</code>: The base element used by all other elements in Phosphophyllite's GUI system. There's not much to these.</li>
+  <li><code>TooltipElement</code>: The simplest <i>usable</i> element, this allows you to define an area that will show a tooltip when hovered over. This is useful when you have a GUI texture with symbols already on it, and would like to add tooltip functionality without chopping up your texture and stitching a <code>RenderedElement</code> on to it.</li>
+  <li><code>RenderedElement</code>: This element is the first <i>visible </i>element. This allows you to render a section using a texture elsewhere in your GUI's texture, ranging from things like an animated picture to a fully animated water tank gauge. It builds on the <code>TooltipElement</code>, and as such can display tooltips on hover.<ul>
+      <li><strong>Note</strong>: If you have a symbol you want to render on your screen, but it doesn't have anything dynamic to it (such as a changing texture or moving position), it is advised to instead stitch it directly onto your GUI texture in order to save the extra render call. The difference is negligible, but it's still best practice.</li>
+    </ul>
+  </li>
+  <li><code>InteractiveElement</code>: The most complex element, this element has the traits from <code>TooltipElement</code> and <code>RenderedElement</code>. This element allows direct interaction with the user, through the normal GUI events you would receive normally from vanilla's <code>GuiEventListener</code>. This can be used to create things ranging from simple buttons, to full text entry boxes.</li>
+</ul>
+<p>Below is an example of an InteractiveElement, which is positioned on-screen at (100, 30) and a size of 16 × 16 pixels, and a UV coordinate of (116, 0). This will play a noise when clicked and change texture when hovered over:<br>&nbsp;</p>
+<pre><code class="language-java">// Create an instance of the element.
+InteractiveElement&lt;MyCoolContainer&gt; clickySoundButton =
+    new InteractiveElement&lt;&gt;(this, 100, 30, 16, 16, 116, 0, new TextComponent("Look Ma, I'm in a tooltip!"));
+
+// Create the callback to play the sound.
+textBoxEnterButton.onMouseReleased = (mX, mY, btn) -&gt; {
+    // Check that the mouse was over the button when it clicked.
+    if (textBoxEnterButton.isMouseOver(mX, mY)) {
+        // Play the selection sound.
+        textBoxEnterButton.playSound(SoundEvents.UI_BUTTON_CLICK);
+        return true;
+    } else {
+        // It wasn't hovered, don't do the thing.
+        return false;
+    }
+};
+
+// Create the custom rendering logic.
+textBoxEnterButton.onRender = ((mS, mX, mY) -&gt; {
+    // Check where the mouse is.
+    if (textBoxEnterButton.isMouseOver(mX, mY)) {
+        // Mouse is hovering, highlight the button.
+        textBoxEnterButton.blit(mS, 132, 0);
+    } else {
+        // It isn't hovered, don't highlight the button.
+        textBoxEnterButton.blit(mS, 116, 0);
+    }
+});</code></pre>
+<p>More examples can be seen in <a href="/biggerreactors">Bigger Reactors</a>, which makes extensive use of this system for all of its GUIs.</p>

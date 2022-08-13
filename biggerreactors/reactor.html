@@ -1,0 +1,45 @@
+<!--
+title: Reactors
+description: 
+published: true
+date: 2021-12-06T23:35:38.021Z
+tags: 
+editor: ckeditor
+dateCreated: 2021-12-06T07:00:31.000Z
+-->
+
+<figure class="image image_resized image-style-align-right" style="width:16.75%;"><img src="/biggerreactors/reactor/passive_reactor_3x3.png">
+  <figcaption>A small, 3 × 3 × 3 reactor.</figcaption>
+</figure>
+<p><strong>Reactors </strong>are the primary multi-block of Bigger Reactors. Loosely inspired by the real-life RBMK design, reactors may be used as either a power generator (in Passive mode) or as a heat source (in Active mode). Reactors consume and produce various Fuel and Waste products, and are highly customizable.</p>
+<p>As of Bigger Reactors 0.5.2, the smallest possible reactor size is 3 × 3 × 3. With the default config, reactors may be built as large as 128 × 128 × 192, however this may be changed to an absolute maximum of 192 × 192 × 256.<br><br><br><br>&nbsp;</p>
+<h2>Required Components</h2>
+<p>The following components are the bare minimum required to construct any type of reactor.</p>
+<figure class="image image-style-align-left"><img src="/biggerreactors/reactor/reactor_terminal.png" alt="Reactor Terminal"></figure>
+<p><br><strong>&nbsp; </strong><a href="/biggerreactors/reactor/terminal"><strong>Reactor Terminals</strong></a> are the heart of your reactor.&nbsp;<br>&nbsp;</p>
+<figure class="image image-style-align-left"><img src="/biggerreactors/reactor/reactor_casing.png" alt="Reactor Casing"></figure>
+<p><br><strong>&nbsp; </strong><a href="/biggerreactors/reactor/casing"><strong>Reactor Casings</strong></a> make up the frame and walls of your reactor.<br>&nbsp;</p>
+<figure class="image image-style-align-left"><img src="/biggerreactors/reactor/reactor_fuel_rod.png" alt="Fuel Rod"></figure>
+<p><br><strong>&nbsp; </strong><a href="/biggerreactors/reactor/fuelrod"><strong>Fuel Rods</strong></a> are where Fuel and Waste are contained.<br>&nbsp;</p>
+<figure class="image image-style-align-left"><img src="/biggerreactors/reactor/reactor_control_rod.png"></figure>
+<p><br><strong>&nbsp; Control Rods</strong> are used to maintain control over the reaction.<br>&nbsp;</p>
+<figure class="image image-style-align-left"><img src="/biggerreactors/reactor/reactor_access_port.png"></figure>
+<p><br><strong>&nbsp; Access Ports</strong> are used to insert Fuel and extract Waste.</p>
+<h2><br>Type-Specific Components</h2>
+<p>Certain components may only be used with a specific type of reactor, and cannot be used together in the same reactor.</p>
+<p>The first type of reactor are <strong>Passive Reactors</strong>. These output the energy they generate directly as RF, which may be used by other machines.</p>
+<figure class="image image-style-align-left"><img src="/biggerreactors/reactor/reactor_power_tap.png"></figure>
+<p><br><strong>&nbsp; Power Taps</strong> are where you extract power from a passive reactor.</p>
+<p><br>The second type of reactor are <strong>Active Reactors</strong>. These convert the energy they generate into heat, which is used to heat up fluids.</p>
+<figure class="image image-style-align-left"><img src="/biggerreactors/reactor/reactor_coolant_port.png"></figure>
+<p><br><strong>&nbsp; Coolant Ports</strong> are used to insert “cold” fluids (such as water) and extract “hot” fluids (such as steam).<br>&nbsp;</p>
+<figure class="image image-style-align-left"><img src="/biggerreactors/reactor/reactor_coolant_manifold.png"></figure>
+<p><br><strong>&nbsp; Coolant Manifolds</strong> are used to increase the surface area for heat transfer.</p>
+<h2><br>Optional Components</h2>
+<p>Some components are entirely optional and are not required to build a functioning reactor. These may, however, allow for automation and remote control of reactors.</p>
+<figure class="image image-style-align-left"><img src="/biggerreactors/reactor/reactor_redstone_port.png"></figure>
+<p><br>&nbsp; <strong>Redstone Ports </strong>allow for control of various reactor functions via <a href="https://minecraft.fandom.com/wiki/Redstone_circuits">Redstone circuits</a>.<br>&nbsp;</p>
+<figure class="image image-style-align-left"><img src="/biggerreactors/reactor/reactor_computer_port.png"></figure>
+<p><br><strong>&nbsp; Computer Ports</strong> allow for control of various reactor functions via Lua scripting. This requires a computers mod such as <a href="https://www.curseforge.com/minecraft/mc-mods/cc-tweaked">CC: Tweaked</a> to be installed.<br>&nbsp;</p>
+<figure class="image image-style-align-left"><img src="/biggerreactors/reactor/reactor_glass.png"></figure>
+<p><br><strong>&nbsp; Reactor Glass</strong> functions identically to casings, but may only be used on walls. It allows you to see inside of the reactor.</p>

@@ -1,0 +1,42 @@
+<!--
+title: Reactor Simulation
+description: Internal Reactor Simulation Details
+published: true
+date: 2021-12-22T06:13:33.356Z
+tags: 
+editor: ckeditor
+dateCreated: 2021-12-05T11:03:10.932Z
+-->
+
+<p>This only discusses how the moderator values impact the simulation, default moderators and their properties can be found on the <a href="https://biggerseries.net/en/biggerreactors/reactor/moderators">moderators page</a><br><br>At the beginning of each tick, a fuel rod is selected as the source rod. All rods will be iterated in a loop.</p>
+<p>Depending on the amount of fuel and the position of the control rod for the selected rod, a varying amount of fuel will be burned and radiation produced. Depending on the amount of radiation produced the fuel rod will heat the fuel pool directly.&nbsp;</p>
+<p>After heating the fuel pool, the rod will emit radiation for moderation/fertilization.</p>
+<ul>
+  <li>For version 0.5, radiation can go in any direction (random) from the center of the rod, distance traveled is started as soon as it exists the rod block</li>
+  <li>For versions 0.4.3 and older, radiation extends in the cardinal (NSEW) directions only</li>
+</ul>
+<p>This radiation will travel for up to 4 blocks.</p>
+<ul>
+  <li>Radiation that hits a wall is voided.</li>
+  <li>Radiation can stop before traveling 4 blocks, if it's weak enough.</li>
+</ul>
+<p>As it travels, the radiation (and reactor) is modified by the environment, including moderators and neighboring fuel rods.</p>
+<ul>
+  <li>More fuel = More radiation = More heat = More power</li>
+</ul>
+<p><br>Higher absorption will result in more radiation being converted to case heat.</p>
+<ul>
+  <li>Absorption will reduce the radiation intensity, affecting the max travel distance.</li>
+</ul>
+<p><strong>Higher absorption is sometimes better, sometimes worse.</strong></p>
+<p><br>The amount of heat produced from a given amount of absorbed radiation is heat efficiency.&nbsp;<br><strong>Higher heat efficiency is always better.</strong></p>
+<p><br>One of the properties of the radiation that is modified is the "hardness," or how effective it is.</p>
+<p>This is a simplification of neutron flux in real reactors, where slower is better. The softer the radiation is, the better it works.<br>A higher moderation factor decreases the hardness faster, which means more of the radiation can be absorbed to produce heat.&nbsp;<br><strong>Higher moderation is always better.</strong></p>
+<p><br>When radiation hits another fuel rod, it will increase the reactivity of the fuel pool (all the rods, no distinction is made between the rods). That lowers the fuel burn rate of the reactor, so, more is better.</p>
+<p>Heat conductivity is calculated only for blocks that touch a fuel rod, and affects how efficiently heat is transferred from fuel rods to the casing.</p>
+<ul>
+  <li>Power/steam is generated from casing heat.</li>
+  <li>Higher fuel heat results in higher fuel burn</li>
+</ul>
+<p><br><strong>Higher heat conductivity is always better.</strong></p>
+<p>Which of those four matter the most depends on how you designed your reactor, and where in the reactor the block is.</p>
