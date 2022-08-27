@@ -1,3 +1,13 @@
+---
+title: turbine
+description: 
+published: true
+date: 2022-08-27T03:10:49.341Z
+tags: 
+editor: markdown
+dateCreated: 2022-08-27T03:10:46.422Z
+---
+
 **Turbines** are multi-block power generators that run on steam. The steam can be sourced from an active [reactor](/biggerreactors/reactor.html) that boils water, or from a [heat exchanger](/biggerreactors/heat_exchanger.md). During operation, the steam is condensed into water which can be fed back into the source or it can be voided.
 
 The smallest possible turbine size is 5 × 4 × 5, assuming a vertical shaft. With the default config, turbines may be built as large as 32 × 192 × 32.
