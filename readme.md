@@ -8,6 +8,8 @@ This repository is synchronized daily to the [Wiki.js instance](https://biggerse
 
 You are able to contribute either on the Wiki directly, or via Git using this repository. However, there are some caveats, and things that'll need to be done while contributing. Don't worry if you forget any of these though, we can let you know (or we can fix them later).
 
+You can also kindly request a manual refresh of the Wiki instance in the Discord server.
+
 ### Use Markdown, Not HTML
 
 Whenever possible, use Markdown instead of HTML files (Git) or the WYSIWYG editor (Wiki.js). This makes it easier to edit pages regardless of what way you choose to contribute. You *can* use HTML tags inside of the Markdown files if necessary, however; just don't go overboard.
