@@ -1,5 +1,5 @@
 ---
-title: turbine
+title: Turbines
 description: 
 published: true
 date: 2022-08-27T03:10:49.341Z
@@ -14,31 +14,40 @@ The smallest possible turbine size is 5 × 4 × 5, assuming a vertical shaft. Wi
 
 ## Required Components
 
-![Turbine Casing](/biggerreactors/turbine/turbine_casing.png)
+<img style="float: left;" src="/biggerreactors/turbine/turbine_terminal.png"></img>
+**Turbine Terminals** are the control panels of the turbine. A turbine multi-block will form without a terminal, but you can't do much without it.
+<br>
+
+<img style="float: left;" src="/biggerreactors/turbine/turbine_casing.png"></img>
 **Turbine Casings** make up the frame and walls of the turbine.
+<br>
 
-![Turbine Fluid Port](/biggerreactors/turbine/turbine_fluid_port.png)
+<img style="float: left;" src="/biggerreactors/turbine/turbine_fluid_port.png"></img>
 **Turbine Fluid Ports** are used to insert steam and extract water. They provide a UI to set input or output status.
+<br>
 
-![Turbine Power Tap](/biggerreactors/turbine/turbine_power_tap.png)
+<img style="float: left;" src="/biggerreactors/turbine/turbine_power_tap.png"></img>
 **Power Taps** are used to extract power.
+<br>
 
-![Turbine Rotor Bearing](/biggerreactors/turbine/turbine_rotor_bearing.png)
+<img style="float: left;" src="/biggerreactors/turbine/turbine_rotor_bearing.png"></img>
 **Rotor Bearings** are located at each end of the shaft of the turbine. Exactly 2 are required.
+<br>
 
-![Turbine Rotor Shaft](/biggerreactors/turbine/turbine_rotor_shaft.png)
+<img style="float: left;" src="/biggerreactors/turbine/turbine_rotor_shaft.png"></img>
 **Rotor Shafts** form the shaft of your turbine that spans end to end and connects to the rotor bearings.
+<br>
 
-![Turbine Rotor Blade](/biggerreactors/turbine/turbine_rotor_blade.png)
-**Rotor Blades** make the rotor spin by converting the thermal energy of the steam into rotational kinetic energy of the shaft. They are placed onto shaft components and can be multiple blocks in length. They can also be placed asymmetrically.
+<img style="float: left;" src="/biggerreactors/turbine/turbine_rotor_blade.png"></img>
+**Rotor Blades** make the rotor spin by converting the thermal energy of the steam into rotational kinetic energy of the shaft. They are placed onto shaft components and can be multiple blocks in length.
+<br>
 
 ## Optional Components
 
-![Turbine Terminal](/biggerreactors/turbine/turbine_terminal.png)
-**Turbine Terminals** are the control panels of the turbine. A turbine multi-block will form without a terminal, but you can't do much without it.
-
-![Turbine Glass](/biggerreactors/turbine/turbine_glass.png)
+<img style="float: left;" src="/biggerreactors/turbine/turbine_glass.png"></img>
 **Turbine Glass** functions identically to casings, but may only be used on walls. It allows you to see inside of the turbine.
+<br>
 
-![Turbine Computer Port](/biggerreactors/turbine/turbine_computer_port.png)
+<img style="float: left;" src="/biggerreactors/turbine/turbine_computer_port.png"></img>
 **Computer Ports** allow for control of various turbine functions via Lua scripting. This requires a computers mod such as [CC: Tweaked](https://www.curseforge.com/minecraft/mc-mods/cc-tweaked) to be installed.
+<br>
