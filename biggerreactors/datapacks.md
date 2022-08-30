@@ -22,7 +22,8 @@ You can use any of the following types `registry, tag, fluid, fluidtag` to ID th
     efficiency: 0.45,
     moderation: 1.1,
     conductivity: 1.2,
-}```
+}
+```
 
 
 ## Turbines
@@ -36,4 +37,5 @@ You can use any of the following types `registry, tag` to ID the materials to be
     efficiency: 0.20,
     extractionRate: 0.1,
     bonus: 1,
-}```
+}
+```
