@@ -15,7 +15,8 @@ In my Examples i've used [KubeJS](https://www.curseforge.com/minecraft/mc-mods/k
 Example file, in this case `lapis_block.json5`, this one needs to be placed into the folder `\ebcr\moderators\`
 You can use any of the following types `registry, tag, fluid, fluidtag` to ID the materials to be used as moderators 
 
-```{
+```
+{
     type: "tag",
     location: "forge:storage_blocks/lapis",
     absorption: 0.35,
@@ -31,7 +32,8 @@ You can use any of the following types `registry, tag, fluid, fluidtag` to ID th
 Example file, in this case `lapis.json5`, this one needs to be placed into the folder `\ebest\coils\`
 You can use any of the following types `registry, tag` to ID the materials to be used as coils, no fluids
 
-```{
+```
+{
     type: "tag",
     location: "forge:storage_blocks/lapis",
     efficiency: 0.20,
