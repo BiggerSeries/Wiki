@@ -10,6 +10,8 @@ dateCreated: 2021-12-05T10:47:17.273Z
 
 **Reactor Moderators** (commonly incorrectly referred to as Reactor Coolants) are materials placed inside of a Reactor during construction. When a reactor is in operation, a moderator may change the way the reactor performs depending its properties.
 
+*The below information is accurate for Bigger Reactors 0.5.x (1.16) and 0.6.x (1.17-1.19), the simulation changes in 0.7.x (1.20+)*
+
 Moderators have four main properties that affect the reactor simulation:
 
 -   **Absorption**: The speed at which radiation is absorbed and converted to case heat.
