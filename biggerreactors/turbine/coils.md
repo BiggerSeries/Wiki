@@ -4,8 +4,6 @@ published: true
 editor: markdown
 ---
 
-Turbine Coils
-
 **Turbine Coils** are materials placed around a turbine shaft at one end of the turbine during construction.
 
 *The below information is accurate for Bigger Reactors 0.5.x (1.16) and 0.6.x (1.17-1.19), the simulation changes in 0.7.x (1.20+)*
