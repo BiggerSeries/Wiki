@@ -7,7 +7,8 @@ editor: markdown
 Bigger Reactors can be customised either by the configs or via the datapacks, primarily by modpack authors. Below are some examples of both Moderators and Coils and a simple "how to" for adding moderators and coils via Datapacks.
 For more information on how the material stats affect the simulations, refer to the [Moderators](https://biggerseries.net/biggerreactors/reactor/moderators) and [Coils](https://biggerseries.net/biggerreactors/turbine/coils) pages
 
-In my Examples i've used [KubeJS](https://www.curseforge.com/minecraft/mc-mods/kubejs) and put the files in the directory `kubejs\data\biggerreactors\`
+In my Examples i've used [KubeJS](https://www.curseforge.com/minecraft/mc-mods/kubejs) and put the files in the directory `kubejs\data\biggerreactors\`.
+The file extensions can be either `.json` or `.json5`
 
 
 ## Reactor Moderators
