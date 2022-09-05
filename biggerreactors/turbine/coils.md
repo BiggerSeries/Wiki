@@ -6,13 +6,13 @@ editor: markdown
 
 **Turbine Coils** are materials placed around a turbine shaft at one end of the turbine during construction.
 
-*The below information is accurate for Bigger Reactors 0.5.x (1.16) and 0.6.x (1.17-1.19), the simulation changes in 0.7.x (1.20+)*
+*The below information is accurate for Bigger Reactors 0.5.x (1.16) and 0.6.x (1.17-1.19) or earlier versions, the simulation changes in 0.7.x (1.20+)*
 
 The Coils have three main properties that affect turbine simulation. 
 
 - **Extraction Rate**: Affects the RF extracted per tick per RPM.
 - **Efficiency**: Affects how much of the extracted RF is then turned into Output RF.
-- **Bonus**: Applies a final RF bonus onto the outputted RF value *(i think, based on the sim code)*.
+- **Bonus**: Applies a final exponential RF bonus onto the outputted RF value .
 
 In general, higher values are better.
 
