@@ -10,7 +10,7 @@ dateCreated: 2021-12-05T10:47:17.273Z
 
 **Reactor Moderators** (commonly incorrectly referred to as Reactor Coolants) are materials placed inside of a Reactor during construction. When a reactor is in operation, a moderator may change the way the reactor performs depending its properties.
 
-*The below information is accurate for Bigger Reactors 0.5.x (1.16) and 0.6.x (1.17-1.19), the simulation changes in 0.7.x (1.20+)*
+*The below information is accurate for Bigger Reactors 0.5.x (1.16) and 0.6.x (1.17-1.19) or earlier versions, the simulation changes in 0.7.x (1.20+)*
 
 Moderators have four main properties that affect the reactor simulation:
 
@@ -25,7 +25,7 @@ Something to note is that Modpack authors have the ability to add or modify mode
 
 ## Moderator Properties (0.5.2)
 
-The values listed below are accurate for Bigger Reactors 0.5.2, for Minecraft 1.16.5.  
+The values listed below are accurate for Bigger Reactors 0.5.2, for Minecraft 1.16.5.  *Also correct for 0.6.x (1.17-1.19)*
  
 
 | Type | ID  | Absorption | Efficiency | Moderation | Conductivity |
