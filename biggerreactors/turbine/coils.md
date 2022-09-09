@@ -11,8 +11,8 @@ editor: markdown
 The Coils have three main properties that affect turbine simulation. 
 
 - **Extraction Rate**: Affects the RF extracted per tick per RPM.
-- **Efficiency**: Affects how much of the extracted RF is then turned into Output RF.
-- **Bonus**: Applies a final exponential RF bonus onto the outputted RF value .
+- **Efficiency**: Affects how much of the bonus RF is then turned into output RF.
+- **Bonus**: Applies a final exponential RF bonus onto the extracted RF value .
 
 In general, higher values are better.
 
