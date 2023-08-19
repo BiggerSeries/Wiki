@@ -136,11 +136,3 @@ The below is simple going to be a commands list dump, not a tutorial *currently*
 
 **notes**
 - the dump command was added in Bir version 1.18.2-0.6.0-beta.1.3
-
-
-
-self notes
-[](https://github.com/BiggerSeries/BiggerReactors/blob/1.18/src/main/java/net/roguelogix/biggerreactors/multiblocks/reactor/deps/ReactorPeripheral.java)
-[](https://github.com/BiggerSeries/BiggerReactors/blob/1.18/src/main/java/net/roguelogix/biggerreactors/multiblocks/heatexchanger/deps/HeatExchangerPeripheral.java)
-[](https://github.com/BiggerSeries/BiggerReactors/blob/1.18/src/main/java/net/roguelogix/biggerreactors/multiblocks/turbine/deps/TurbinePeripheral.java)
-
