@@ -6,9 +6,9 @@
 
 The liquids have five main properties that affect the heat exchange process
  
-- **liquid thermal conductivity** , in watts per metre-kelvin "W/mK"*
-- **gas thermal conductivity** , in watts per metre-kelvin  "W/mK"*
-- **latent heat of vaporization** , in rf/mb  (for the gas??)*
+- **liquid thermal conductivity** , in rf per metre-kelvin "rf/mK"*
+- **gas thermal conductivity** , in rf per metre-kelvin  "rf/mK"*
+- **latent heat of vaporization** , in rf/mb*
 - **boiling point** : The temperature the reactor or heat exchanger needs to be in Kelvin `K` to boil the liquid
 - **effect multiplier in a turbine** : Can this Liquid/Gas be used in a Turbine, 0 means it's disabled
 
