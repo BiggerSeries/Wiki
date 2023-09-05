@@ -49,5 +49,5 @@ The smallest possible turbine size is 5 × 4 × 5, assuming a vertical shaft. Wi
 <br>
 
 <img style="float: left;" src="/biggerreactors/turbine/turbine_computer_port.png"></img>
-**Computer Ports** allow for control of various turbine functions via Lua scripting. This requires a computers mod such as [CC: Tweaked](https://www.curseforge.com/minecraft/mc-mods/cc-tweaked) to be installed.
+**Computer Ports** allow for control of various turbine functions via [Lua scripting](/biggerreactors/CCintegration.md). This requires a computers mod such as [CC: Tweaked](https://www.curseforge.com/minecraft/mc-mods/cc-tweaked) to be installed.
 <br>

@@ -82,6 +82,8 @@ The values listed below are accurate for Bigger Reactors 0.5.2, for Minecraft 1.
 | fluid | allthemodium:vapor\_vibranium | 0.15 | 0.75 | 8   | 4   |
 | fluid | allthemodium:vapor\_unobtainium | 0.95 | 0.82 | 2   | 5   |
 | fluidtag | forge:superheated\_sodium | 0.23 | 0.6 | 1.7 | 1   |
+| fluidtag | forge:redstone | 0.75 | 0.55 | 1.6 | 2.5   |
+| fluidtag | forge:ender | 0.9 | 0.75 | 2.0 | 2   |
 
 ## Moderator Properties (0.4.3)
 
