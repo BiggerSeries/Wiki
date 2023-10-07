@@ -2,7 +2,7 @@
 title: Frequently Asked Questions
 description: 
 published: true
-date: 2022-08-07T01:47:56.326Z
+date: 2023-10-07T23:18:24.831Z
 tags: 
 editor: ckeditor
 dateCreated: 2021-12-06T09:27:05.717Z
@@ -10,6 +10,9 @@ dateCreated: 2021-12-06T09:27:05.717Z
 
 <p>The following are a list of <strong>frequently asked questions </strong>we've come across. This may provide answers for some issues players commonly encounter.</p>
 <p>If you have any questions that aren't listed below, please feel free to join our <a href="https://discord.gg/K64HC88">Discord Server</a> and ask there!</p>
+<h2>Can reactors explode?</h2>
+<p><strong>Answer</strong>: No, there are no explosion mechanics in the current version of the game.</p>
+<p><strong>Note</strong>: Explosions are planned! In the future, reactors will explode if you get them into the right conditions for it. We'll try to make it known whenever this does get implemented so that your reactors won't just suddenly go kaboom after a mod update!</p>
 <h2>What's the difference between Bigger Reactors/Extreme Reactors/Big Reactors? Which should I pick?</h2>
 <p><strong>Big Reactors (BR):</strong> This is the original mod, created by Erogenous Beef for Minecraft 1.5.2 through 1.7.10. This mod (and the game) is over eight years old, and is not recommended to be used anymore.&nbsp;</p>
 <p><strong>Extreme Reactors (ER)</strong>: This is the <i>original </i>continuation of Big Reactors, created by ZeroNoRyouki for Minecraft 1.9.4 and newer. In general, it is more well known and thoroughly tested.</p>
@@ -19,10 +22,10 @@ dateCreated: 2021-12-06T09:27:05.717Z
 <p><strong>Solution</strong>: Remove one of the two ports, depending on whether you want RF or heat.</p>
 <p><strong>Explanation</strong>: This is usually caused by a reactor containing both a Power Tap and a Coolant Port. These two ports are mutually exclusive, meaning you can either have a Power Tap (for a Passive Reactor) <strong>or </strong>a Coolant Port (for an Active Reactor). When both are present, the Coolant Port takes priority, so the reactor will be considered actively-cooled and will produce heat rather than RF.&nbsp;</p>
 <p><strong>Note</strong>: In newer versions of Bigger Reactors, a message should appear when right clicking the Reactor Terminal that warns about this issue.</p>
-<h2>I can't get waste out of the reactor/can't eject waste.</h2>
+<h2>I can't get waste out of the reactor/can't eject waste!</h2>
 <p><strong>Solution</strong>: Check if you have less than 1000 mB, and that your connected item pipes are set to pull out of the access port.</p>
 <p><strong>Explanation</strong>: Waste is outputted as an ingot, and one ingot is equal to 1000 mB of waste. If the reactor contains less than that, no waste ejection will occur. Additionally, if your pipe is set to push-into-container only, it will refuse anything being pushed out of the container (access port).</p>
-<h2>My heat is way too high.</h2>
+<h2>My heat is way too high!</h2>
 <p><strong>Solution</strong>: Use the control rods or alter your design. But try the rods first.</p>
 <p><strong>Explanation</strong>: In the original mod, the control rods could be ignored in most cases. In this mod however, the simulation has changed and takes the rods into account more heavily. Try inserting all rods by 50%, then season to taste (lower or raise depending on what you're looking for power- and temperature-wise).</p>
 <h2>Which moderator should I use? What are the values for moderators?</h2>
@@ -40,7 +43,7 @@ dateCreated: 2021-12-06T09:27:05.717Z
 <p><strong>Solution</strong>: Ensure that there are two rotor bearings, one on each end of the rotor shaft.</p>
 <p><strong>Explanation</strong>: In the original mod, only one rotor bearing was required. In Bigger Reactors, two rotor bearings are required.</p>
 <h2>What is a Heat Exchanger? How do I build one?</h2>
-<p><strong>Solution</strong>: A proper Wiki page and tutorial will be coming soon™. In the mean time, here is a <a href="https://cdn.discordapp.com/attachments/788873353816571945/920520614639439892/HeatExchanger.png">link to an infographic</a> showing an example Heat Exchanger setup.</p>
+<p><strong>Answer</strong>: A proper Wiki page and tutorial will be coming soon™. In the mean time, here is a <a href="https://cdn.discordapp.com/attachments/788873353816571945/920520614639439892/HeatExchanger.png">link to an infographic</a> showing an example Heat Exchanger setup.</p>
 <p><strong>Explanation</strong>: The Heat Exchanger is used to transfer heat between two fluids. For example, by piping in a “hot” fluid (such as Lava) into a condenser channel and a "cold" fluid (such as Water) into an evaporator channel, the heat is transferred between the two fluids (using Lava and Water, this would produce Liquid Obsidian and Steam). This is useful if you want to use coolants other than water inside a reactor, but still want to use a turbine for power generation (you can't pump Lava into a turbine, but you can pump Steam).</p>
 <h2>My ComputerCraft script isn't working!</h2>
 <p><strong>Solution</strong>: A proper Wiki page will be coming soon™. For now, check the source code on GitHub to view the new functions. Any functions annotated with <code>@LuaFunction</code> are able to be used from within ComputerCraft. If you're interested in a pre-made script, <a href="https://www.youtube.com/watch?v=SbbT7ncyS2M">check out Krakaen's script</a>!</p>
