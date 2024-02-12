@@ -2,7 +2,7 @@
 title: Reactor Moderators
 description: 
 published: true
-date: 2022-08-13T17:17:51.606Z
+date: 2024-02-12T02:01:20.317Z
 tags: 
 editor: markdown
 dateCreated: 2021-12-05T10:47:17.273Z
@@ -21,7 +21,7 @@ Moderators have four main properties that affect the reactor simulation:
 
 In general, higher values are always better (*except* for absorption, which may be better or worse depending on your reactor design). For a more in-depth explanation on how to use the information here, see the [simulation page](https://biggerseries.net/en/biggerreactors/reactor/simulation).
 
-Something to note is that Modpack authors have the ability to add or modify moderators. For an accurate list of supported blocks/fluids, use [Just Enough Items (JEI)](https://www.curseforge.com/minecraft/mc-mods/jei) by checking the uses for the Reactor Terminal (**currently broken on multiplayer**).
+Something to note is that Modpack authors have the ability to [add or modify moderators](https://biggerseries.net/biggerreactors/datapacks). For an accurate list of supported blocks/fluids, use [Just Enough Items (JEI)](https://www.curseforge.com/minecraft/mc-mods/jei) by checking the uses for the Reactor Terminal (**currently broken on multiplayer**).
 
 ## Moderator Properties (0.5.2)
 
